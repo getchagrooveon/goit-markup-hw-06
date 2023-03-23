@@ -540,6 +540,19 @@
               </a>
             </li>
           </ul>
+          </div>
+        <div class="subscribe-container">
+          <label class="subscribe-label" for="email">Subscribe
+            <input class="subscribe-input" placeholder="E-mail" type="email" name="email" id="email">
+          </label>
+          <button class="subscribe-button">
+            Subscribe
+            <svg class="subscribe-logo" width="20" height="24"> 
+              <use href="./images/symbol-defs.svg#icon-send" >
+              </use>
+            </svg>
+        </button>
+        </div>
         </div>
       </div>
     </footer>
@@ -553,6 +566,30 @@
             ></use>
           </svg>
         </button>
+        <div class="modal-container">
+          <p class="modal-window-text body-text">
+            Leave your contacts and we will call you back
+          </p>
+        <label class="modal-label" for="name">Name<input class="modal-input" type="text" name="name" id="name">
+        <svg class="input-logo" width="14" height="14"> <use href="./images/symbol-defs.svg#icon-name" ></use></svg>
+        </label>
+        <label class="modal-label" for="tel">Phone<input class="modal-input" type="tel" name="tel" id="tel">
+        <svg class="input-logo" width="14" height="14"> <use href="./images/symbol-defs.svg#icon-phone" ></use></svg>
+        </label>
+        <label class="modal-label" for="email">Email<input class="modal-input" type="email" name="email" id="email">
+        <svg class="input-logo" width="14" height="14"> <use href="./images/symbol-defs.svg#icon-email" ></use></svg>
+        </label>
+        <label class="modal-label" for="comment">Comment
+        <textarea class="" name="comment" cols="30" rows="10" placeholder="Text input" id="comment"></textarea>
+        </label>
+        <div class="checkbox-container">
+        <input class="modal-input" type="checkbox" name="checkbox" id="checkbox">
+        <label class="modal-label" for="checkbox">
+          <span class="text-space">I accept the terms and conditions of the
+          <a href="">Privacy Policy</a></span>
+        </label>
+        </div>
+        <button type="submit" class="submit-button">Send</button>
       </div>
     </div>
     <script src="./scripts/modal.js"></script>

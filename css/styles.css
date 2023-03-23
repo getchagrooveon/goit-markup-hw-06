@@ -60,7 +60,7 @@ li {
 }
 
 .body-text-inverted {
-  display: flex;
+  display: block;
   font-family: Roboto, sans-serif;
   font-weight: 400;
   font-size: 16px;
@@ -109,10 +109,12 @@ li {
 
 .nav-link:hover::after {
   background-color: var(--primary-brand-color);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-link.current::after {
   background-color: var(--primary-brand-color);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-link::after {
@@ -125,6 +127,7 @@ li {
   bottom: 0;
   margin-top: 20px;
   background-color: transparent;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .address-container .address-item:not(:last-child) {
@@ -289,9 +292,35 @@ li {
 }
 
 .hero-button:hover,
-.hero-button:focus {
+.hero-button:focus,
+.subscribe-button:hover,
+.subscribe-button:focus {
   background-color: var(--pressed-state-color);
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.subscribe-button {
+  font-family: Roboto, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--light-background-color);
+  background-color: var(--primary-brand-color);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  width: 165px;
+  height: 40px;
+  border-radius: 4px;
+  border: 0;
+  margin-left: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.subscribe-logo {
+  fill: var(--light-background-color);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  margin-left: 16px;
 }
 
 .filter-button {
@@ -355,10 +384,6 @@ li {
   width: 496px;
 }
 
-.footer-text {
-  max-width: 264px;
-  margin-right: 120px;
-}
 .footer {
   padding-top: 100px;
   padding-bottom: 100px;
@@ -598,8 +623,8 @@ li {
 
 .customer-link {
   display: block;
-  fill: var(--subtle-text-color);
 }
+
 .customer-link {
   width: 168px;
   height: 88px;
@@ -609,14 +634,16 @@ li {
   align-items: center;
   justify-content: center;
 }
-.customer-link:hover,
-.customer-link:focus {
-  border: 1px solid var(--pressed-state-color);
-}
 
 .customer-link:hover .customer-icon,
 .customer-link:focus .customer-icon {
   fill: var(--pressed-state-color);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.customer-link .customer-icon {
+  fill: var(--subtle-text-color);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .customers-logo {
@@ -631,19 +658,12 @@ li {
   height: 88px;
   border: 1px solid var(--subtle-text-color);
   border-radius: 4px;
-  fill: var(--subtle-text-color);
   align-items: center;
   justify-content: center;
 }
 
 .customer-item:hover,
-.customer-item:focus {
-  fill: var(--pressed-state-color);
-  border-color: var(--pressed-state-color);
-  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
+.customer-item:focus,
 .customer-item > a:hover,
 .customer-item > a:focus {
   fill: var(--pressed-state-color);
@@ -656,7 +676,7 @@ li {
   align-items: center;
   margin-bottom: 16px;
   justify-self: flex-start;
-  margin-left: 0;
+  margin-left: 80px;
 }
 
 .social-media-icon-global {
@@ -694,10 +714,18 @@ li {
   color: var(--light-main-color);
   margin-top: 16px;
 }
-.footer-social-media .body-text-inverted {
+.footer-social-media .body-text-inverted,
+.subscribe-container .body-text-inverted {
   font-weight: 500;
   margin-top: 0;
   margin-bottom: 16px;
+}
+
+.subscribe-container {
+  display: flex;
+  margin-left: 0px;
+  align-items: flex-end;
+  justify-content: center;
 }
 
 .footer-container {
@@ -723,10 +751,6 @@ li {
 
 .footer-links-primary {
   margin-left: 120px;
-}
-
-.footer-text {
-  max-width: 264px;
 }
 
 .flex {
@@ -784,7 +808,7 @@ footer-link {
   height: 100vh;
   top: 0;
   left: 0;
-  background-color: rgba(157, 164, 189, 0.8);
+  background-color: rgba(46, 47, 66, 0.4);
   transition: opacity 250ms linear, visibility 250ms linear;
 }
 
@@ -795,9 +819,9 @@ footer-link {
 }
 
 .button-close {
-  position: relative;
-  left: -24px;
-  top: 24px;
+  position: absolute;
+  right: 32px;
+  top: 32px;
   cursor: pointer;
   display: inline-block;
   width: 24px;
@@ -865,7 +889,7 @@ footer-link {
   left: 0;
   transform: translateY(100%);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
   padding-top: 40px;
   padding-left: 32px;
   padding-right: 32px;
@@ -877,7 +901,7 @@ footer-link {
 }
 
 .gallery-container-link:hover .hover-text,
-.gallery-container-link:focus .hover-text {
+.gallery-container-link:flabelocus .hover-text {
   transform: translateY(0);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -885,4 +909,183 @@ footer-link {
 .hover-text {
   color: var(--light-background-color);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal-container {
+  max-width: 340px;
+  margin: 0 auto;
+  margin-top: 72px;
+  align-items: center;
+  justify-content: center;
+}
+.modal-window-text {
+  font-weight: 500;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.modal-label {
+  display: block;
+  width: 100%;
+  position: relative;
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.16;
+  color: var(--subtle-text-color);
+  margin-top: 8px;
+}
+
+.modal-input:hover,
+.modal-input:focus,
+.modal-label:hover > textarea,
+textarea:focus {
+  border: 1px solid var(--pressed-state-color);
+}
+
+.modal-input:hover ~ .input-logo,
+.modal-input:focus ~ .input-logo {
+  fill: var(--pressed-state-color);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-input {
+  width: 100%;
+  border: 1px solid var(--subtle-text-color);
+  border-radius: 4px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 4px;
+  padding-left: 38px;
+  padding-right: 38px;
+  padding-top: 11px;
+  padding-bottom: 11px;
+}
+
+textarea {
+  resize: none;
+  width: 100%;
+  border: 1px solid var(--subtle-text-color);
+  border-radius: 4px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-top: 8px;
+}
+
+.submit-button {
+  font-family: Roboto, sans-serif;
+  font-weight: 500;
+  color: var(--light-background-color);
+  background-color: var(--primary-brand-color);
+  width: 169px;
+  height: 56px;
+  border-radius: 4px;
+  border: 0;
+  cursor: pointer;
+  padding: 16px 32px 16px 32px;
+  margin-top: 24px;
+  margin-bottom: 40px;
+  margin-left: 85px;
+  margin-right: 85px;
+}
+
+.submit-button:focus,
+.submit-button:hover {
+  background-color: var(--pressed-state-color);
+}
+
+.checkbox-container {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row-reverse;
+  margin-top: 16px;
+  align-items: center;
+}
+
+.checkbox-container .modal-input {
+  height: 16px;
+  width: 16px;
+  margin-top: 0px;
+}
+
+.checkbox-container .modal-label {
+  margin-left: 0px;
+}
+.checkbox-container .modal-label a {
+  color: var(--primary-brand-color);
+  text-decoration: underline;
+  position: relative;
+}
+
+.input-logo {
+  position: absolute;
+  left: 19px;
+  top: 53%;
+}
+
+.checkbox-container > .modal-label {
+  display: inline-block;
+  position: relative;
+}
+
+.checkbox-container > .modal-label:before {
+  content: '';
+  display: block;
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--subtle-text-color);
+  border-radius: 4px;
+  position: absolute;
+  background-color: var(--modal-background);
+}
+
+.checkbox-container > .modal-label > span {
+  margin-left: 30px;
+}
+
+#checkbox:checked ~ .modal-label:before {
+  background-color: var(--pressed-state-color);
+  border: 1px solid var(--pressed-state-color);
+  background-image: url(../images/checked.svg);
+  background-size: 8px 8px;
+  background-size: contain;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  background-origin: border-box;
+}
+
+#checkbox {
+  position: absolute;
+  left: -200%;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.subscribe-label {
+  font-weight: 500;
+  color: var(--light-background-color);
+  width: 264px;
+  margin-left: 80px;
+}
+
+.subscribe-input {
+  width: 264px;
+  height: 40px;
+  padding: 8px 16px 8px 16px;
+  border: 1px solid var(--light-background-color);
+  border-radius: 4px;
+  background-color: var(--dark-background-color);
+  color: var(--light-background-color);
+  margin-top: 16px;
 }
